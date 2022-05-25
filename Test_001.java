@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-
+import java.lang.Math
 public class Test_001 {
 
 	@Test
@@ -12,8 +12,8 @@ public class Test_001 {
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
-		//x = (int) ( Math.random() * 100);
-		assertEquals(solution(i), p.Puzzle(i));
+		x = (int) ( Math.random() * 100);
+		assertEquals(solution(x), p.Puzzle(x));
 		}
 		
 	}
