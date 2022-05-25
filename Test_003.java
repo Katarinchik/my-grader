@@ -14,7 +14,7 @@ public class Test_003{
 		{
 		x = (int) ( Math.random() * 100);
 		y = (int) ( Math.random() * 100);
-		assertEquals(solution(x,y), p.Puzzle(x,y));
+		assertEquals(solution(x,y), p.Myfunc(x,y));
 		}
 		
 	}
