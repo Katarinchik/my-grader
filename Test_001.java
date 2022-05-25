@@ -27,7 +27,7 @@ public class Test_001 {
 		for (Failure failure : result.getFailures()) {
 			String myFailure = new String(failure.toString());
 			myFailure = myFailure.replace("<", " ");
-			myFailure = myFailure.replace(">", " ");
+			myFailure = myFailure.replace(">", " "); 
 			System.out.println(myFailure);			
 		}
 		System.out.println(result.wasSuccessful());
