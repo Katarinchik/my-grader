@@ -4,7 +4,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import java.lang.Math;
-public class Test_003{
+public class Test_003{ 
 
 	@Test
 	public void test() {
