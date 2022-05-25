@@ -13,7 +13,7 @@ public class Test_001 {
 		for (int i=0;i<10;i++)
 		{
 		x = (int) ( Math.random() * 100);
-		assertEquals(solution(x), p.Puzzle(x));
+		assertEquals(solution(x), p.Myfunc(x));
 		}
 		
 	}
