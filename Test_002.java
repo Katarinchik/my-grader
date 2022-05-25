@@ -4,7 +4,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import java.lang.Math;
-public class Bai2TestRunner {
+public class Test_002 {
 
 	@Test
 	public void test() {
@@ -13,7 +13,7 @@ public class Bai2TestRunner {
 		for (int i=0;i<10;i++)
 		{
 		x = (int) ( Math.random() * 100);
-		assertEquals(solution(x), p.Puzzle(x));
+		assertEquals(solution(x), p.Myfunc(x));
 		}
 		
 	}
