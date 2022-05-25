@@ -8,7 +8,7 @@ public class Test_003{
 
 	@Test
 	public void test() {
-	int x;
+	int x,y;
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
