@@ -12,7 +12,7 @@ public class Test_002 {
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
-		x = (int) ( Math.random() * 100);
+		x = (int) ( Math.random() * 15)+1;
 		assertEquals(solution(x), p.Myfunc(x));
 		}
 		
@@ -26,7 +26,7 @@ public class Test_002 {
 			n0=n1;
 			n1=n2;
 		}
-		return n2 ;
+		return n1 ;
 	}
 
 	public static void main(String[] args) {
