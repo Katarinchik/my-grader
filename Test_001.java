@@ -4,21 +4,14 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
-public class Bai1TestRunner {
+public class Test_001 {
 
 	@Test
 	public void test() {
-	int x;
 		Program p = new Program();
-		for (int i=0;i<10;i++)
-		{
-		x = (int) ( Math.random() * 100);
-		assertEquals(solution(x), p.Puzzle(x));
-		}
-		
-	}
-	public int solution(int x) {
-		return x*2;
+		assertEquals(0, p.Puzzle(0));
+		assertEquals(2, p.Puzzle(1));
+		assertEquals(4, p.Puzzle(2));
 	}
 
 	public static void main(String[] args) {
