@@ -3,30 +3,18 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import java.lang.Math;
+
 public class Test_002 {
 
 	@Test
 	public void test() {
-	int x;
 		Program p = new Program();
-		for (int i=0;i<10;i++)
-		{
-		x = (int) ( Math.random() * 15)+1;
-		assertEquals(solution(x), p.Myfunc(x));
-		}
-		
-	}
-	public int solution(int x) {
-		int n0 = 1;
-		int n1 = 1;
-		int n2;
-		for(int i = 3; i <= x; i++){
-			n2=n0+n1;
-			n0=n1;
-			n1=n2;
-		}
-		return n1 ;
+		assertEquals(1, p.Puzzle(1));
+		assertEquals(1, p.Puzzle(2));
+		assertEquals(2, p.Puzzle(3));
+		assertEquals(3, p.Puzzle(4));
+		assertEquals(5, p.Puzzle(5));
+		assertEquals(8, p.Puzzle(6));
 	}
 
 	public static void main(String[] args) {
