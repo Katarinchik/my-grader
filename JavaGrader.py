@@ -9,18 +9,13 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_POST(self):
         body_len = int(self.headers.getheader('content-length', 0))
         body_content = self.rfile.read(body_len)
-        problem_name, hide_answer, student_response = get_info(body_content)
-        if hide_answer == "True":
-                hide_answer = True
-        else:
-                hide_answer = False
-        result = grade(problem_name, student_response, hide_answer)
-        send = json.dumps(result).encode()
+        problem_name, student_response = get_info(body_content)
+        result = grade(problem_name, student_response)
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(send)
+        self.wfile.write(result)
 
-def grade(problem_name, student_response, hide_answer):
+def grade(problem_name, student_response):
 
     source_file = open("/edx/my-grader/Program.java", 'w')
     source_file.write(student_response)
@@ -43,7 +38,9 @@ def grade(problem_name, student_response, hide_answer):
     p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = re.split('\n', out)
-    correct = out[len(out) - 2]
+    for i in range(len(out))
+        out1[i] = re.split(' ', out[i])
+    correct = out[0][len(out) - 2]
 
     if (correct == "true"):
         correct = True
@@ -51,12 +48,32 @@ def grade(problem_name, student_response, hide_answer):
         correct = False
 
     if (len(out) > 2):
-        message = out[0]
+        message = out[0][0]
     else:
         message = "Correct"
 
     result.update({"correct": correct, "msg": message,})
-    result = create_response(result, hide_answer)
+    result = process_result(result)
+    return result
+
+def process_result(result):
+
+    if (result["compile_error"] != 0):
+        correct = False
+        score = 0
+        message = result["compile_error"]
+    else:
+        correct = result["correct"]
+        message = result["msg"]
+
+    if (correct == True):
+        score = 1
+    else:
+        score = 0
+
+    result = {}
+    result.update({"correct": correct, "score": score, "msg": message })
+    result = json.dumps(result)
     return result
 
 def create_response(result, hide_answer):
@@ -196,13 +213,14 @@ def create_response(result, hide_answer):
     out['msg'] = html_message
 
     return out
+
+
 def get_info(body_content):
     json_object = json.loads(body_content)
     json_object = json.loads(json_object["xqueue_body"])
     problem_name = json.loads(json_object["grader_payload"])
     student_response = json_object["student_response"]
-    hide_answer = grader_payload['hide_answer']
-    return problem_name, hide_answer, student_response
+    return problem_name, student_response
 
 if __name__ == "__main__":
 
