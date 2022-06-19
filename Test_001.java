@@ -8,12 +8,15 @@ public class Test_001 {
 
 	@Test
 		public void test() {
-	int x;
+		int x;
+		string mes;
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
 		x = (int) ( Math.random() * 100);
-		assertEquals(solution(x), p.Myfunc(x));
+		assertEquals(mes,solution(x), p.Myfunc(x));
+		if(mes.isEmpty())
+		System.out.println("True Myfunc " +solution(x) + " "+ p.Myfunc(x));	
 		}
 		
 	}
