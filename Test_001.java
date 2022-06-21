@@ -16,7 +16,7 @@ public class Test_001 {
 		x = (int) ( Math.random() * 100);
 		assertEquals(mes,solution(x), p.Myfunc(x));
 		if(mes.isEmpty())
-		System.out.println("True Myfunc " +solution(x) + " "+ Myfunc(x));	
+		System.out.println("True Myfunc " +solution(x));	
 		}
 		
 	}
