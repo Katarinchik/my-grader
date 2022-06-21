@@ -58,7 +58,7 @@ def create_response(result, hide_answer):
     for i in range(len(result)):
         if result[i]["correct"] == "True":
                 result[i]["correct"] = True
-                number_passed ++
+                number_passed = number_passed +1
         else:
                 result[i]["correct"]= False
     print(result)
