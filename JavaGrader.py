@@ -139,10 +139,10 @@ def create_response(result, hide_answer):
     print("4")
     if any(("error" in res) for res in result):
         html_message = start.format("ERROR")
-    print("5")
+        print("5")
     elif out["correct"]:
         html_message = start.format("CORRECT")
-    print("6")
+        print("6")
     else:
         html_message = start.format("INCORRECT")
     print("7")
