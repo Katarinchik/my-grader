@@ -151,7 +151,7 @@ def create_response(result, hide_answer):
         
         answer = {"correct": False, "function": "", "result": "", "expected": ""}
         answer.update(res)
-    print("8")
+        print("8")
         if "error" in res:
             html_message += fatal.format(**answer)
         else:
