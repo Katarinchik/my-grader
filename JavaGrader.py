@@ -54,13 +54,12 @@ def grade(problem_name, student_response, hide_answer):
     return result
 
 def create_response(result, hide_answer):  
-    print(result[0]["correct"])
     for i in range(len(result)-1):
         if result[i]["correct"] == "True":
                 result[i]["correct"] = True
         else:
                 result[i]["correct"]= False
-     print(result)
+    print(result)
     start = """
             <div class="test">
                 <header>Test results</header>
