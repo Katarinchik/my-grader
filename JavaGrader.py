@@ -115,7 +115,6 @@ def create_response(result, hide_answer):
         result = [result]
     
     if not result:
-        print("Пустой результат")
         result = [{'correct':False, 'error': 'Похоже, что произошла ошибка при проверке вашего кода.\n\n'
                                              'Пожалуйста, проверьте запускается ли он на вашем компьютере'}]
 
