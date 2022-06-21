@@ -130,7 +130,7 @@ def create_response(result, hide_answer):
     out["correct"] = (number_passed == len(result))
 
     
-    out['score'] = number_passed / len(result)
+    out["score"] = number_passed / len(result)
 
    
     if any(("error" in res) for res in result):
