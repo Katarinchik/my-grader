@@ -40,14 +40,12 @@ def grade(problem_name, student_response, hide_answer):
     print("TR1 "+err)
     p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    print("PN" + problem_name)
     if (err != ""):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer)
         return result
     out = re.split("\n", out)
     keys = ["correct", "function", "result", "expected"]
-    print(out)
     out1 =[];
     result =[];
     for i in range(len(out)):
@@ -57,8 +55,9 @@ def grade(problem_name, student_response, hide_answer):
     create_response(result, hide_answer)
     return result
 
-def create_response(result, hide_answer):    
-    for i in range(len(result)):
+def create_response(result, hide_answer):  
+    print(result[0]["correct"])
+    for i in range(len(result)-1):
         if result[i]["correct"] == "True":
                 result[i]["correct"] = True
         else:
