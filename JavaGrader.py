@@ -45,6 +45,7 @@ def grade(problem_name, student_response, hide_answer):
     for i in range(len(out))
         out1[i] = re.split(' ', out[i])
         result.append(dict(zip(keys, out1))) 
+    print (result)
     create_response(result, hide_answer)
     return result
 
