@@ -42,7 +42,7 @@ def grade(problem_name, student_response, hide_answer):
         return result
     out = re.split('\n', out)
     keys = ['correct', 'function', 'result', 'expected']
-    for i in range(len(out))
+    for i in range(len(out)):
         out1[i] = re.split(' ', out[i])
         result.append(dict(zip(keys, out1))) 
     print (result)
