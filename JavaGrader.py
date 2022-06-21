@@ -53,10 +53,12 @@ def grade(problem_name, student_response, hide_answer):
     create_response(result, hide_answer)
     return result
 
-def create_response(result, hide_answer):  
+def create_response(result, hide_answer): 
+    number_passed = 0;
     for i in range(len(result)):
         if result[i]["correct"] == "True":
                 result[i]["correct"] = True
+                number_passed ++
         else:
                 result[i]["correct"]= False
     print(result)
@@ -127,7 +129,7 @@ def create_response(result, hide_answer):
         result = [{"correct":False, "error": "No result"}]
 
     
-    number_passed = sum(r["correct"] for r in result)
+    
     out["correct"] = (number_passed == len(result))
 
     
