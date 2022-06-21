@@ -29,7 +29,7 @@ public class Test_001 {
 			String myFailure = new String(failure.toString());
 			myFailure = myFailure.replace("<", " ");
 			myFailure = myFailure.replace(">", " "); 
-			System.out.println(myFailure);			
+			# System.out.println(myFailure);			
 		}
 		System.out.println(result.wasSuccessful());
 	}
