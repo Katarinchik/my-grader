@@ -10,11 +10,11 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         body_len = int(self.headers.getheader('content-length', 0))
         body_content = self.rfile.read(body_len)
         problem_name, student_response, hide_answer = get_info(body_content)
-        result = grade(problem_name, student_response, hide_answer)
         if hide_answer == "True":
                 hide_answer = True
         else:
                 hide_answer = False
+        result = grade(problem_name, student_response, hide_answer)
         self.send_response(200)
         self.end_headers()
         self.wfile.write(result)
@@ -40,6 +40,7 @@ def grade(problem_name, student_response, hide_answer):
     out, err = p.communicate()
     p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
+    print("Flag!!!!!!!!!!!!!!11111")
     if (err != ""):
         result.update({'correct': False, 'error': (err)})
         result = create_response(result, hide_answer)
