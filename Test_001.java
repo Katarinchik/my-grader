@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import java.lang.Math
+import java.lang.Math;
 public class Test_001 {
 
 	@Test
