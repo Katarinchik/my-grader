@@ -37,7 +37,6 @@ def grade(problem_name, student_response, hide_answer):
     test_runner_java = "/edx/my-grader/" + problem_name + ".java"
     p = subprocess.Popen(["javac", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner_java], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    print("TR1 "+err)
     p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     if (err != ""):
@@ -51,7 +50,6 @@ def grade(problem_name, student_response, hide_answer):
     for i in range(len(out)):
         out1 = re.split(" ", out[i])
         result.append(dict(zip(keys, out1))) 
-    print (result)
     create_response(result, hide_answer)
     return result
 
@@ -62,6 +60,7 @@ def create_response(result, hide_answer):
                 result[i]["correct"] = True
         else:
                 result[i]["correct"]= False
+     print(result)
     start = """
             <div class="test">
                 <header>Test results</header>
