@@ -15,9 +15,10 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         else:
                 hide_answer = False
         result = grade(problem_name, student_response, hide_answer)
+        send = json.dumps(result).encode()
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(result)
+        self.wfile.write(send)
 
 def grade(problem_name, student_response, hide_answer):
 
