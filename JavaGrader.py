@@ -19,9 +19,15 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         pass
     def do_POST(self):
-        body_len = int(self.headers.getheader('content-length', 0))
-        body_content = self.rfile.read(body_len)
-        problem_name, student_response, hide_answer = get_info(body_content)
+        content_len  = int(self.headers['Content-Length'])
+        post_body = self.rfile.read(content_len ).decode()
+
+        try:
+            body_content = json.loads(post_body)
+        except JSONDecodeError:
+            print('JSONDecodeError, post_body не было загружено должным образом.')
+        else:
+            problem_name, student_response, hide_answer = get_info(body_content)
         if hide_answer == "True":
                 hide_answer = True
         else:
