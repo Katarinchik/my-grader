@@ -160,7 +160,7 @@ def create_response(result, hide_answer):
     return out
 
 
-def get_info(body_content):
+def get_info(json_object):
     json_object = json.loads(json_object['xqueue_body'])
     grader_payload = json.loads(json_object['grader_payload'])
     student_response = json_object['student_response']
