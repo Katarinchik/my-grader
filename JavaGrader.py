@@ -62,6 +62,7 @@ def create_response(result, hide_answer):
         else:
                 result[i]["correct"]= False
     print(result)
+    print(number_passed)
     start = """
             <div class="test">
                 <header>Test results</header>
