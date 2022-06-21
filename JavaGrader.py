@@ -54,7 +54,7 @@ def grade(problem_name, student_response, hide_answer):
     return result
 
 def create_response(result, hide_answer):  
-    for i in range(len(result)-1):
+    for i in range(len(result)):
         if result[i]["correct"] == "True":
                 result[i]["correct"] = True
         else:
