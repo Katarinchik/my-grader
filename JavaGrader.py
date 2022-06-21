@@ -1,11 +1,23 @@
-import BaseHTTPServer
 import json
 import os
 import subprocess
 import re
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from json.decoder import JSONDecodeError
+from socketserver import ThreadingMixIn
+import gc
+import shutil
+import subprocess
+import sys
+import time
+import traceback
 
-class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+class Handler(BaseHTTPRequestHandler):
+    def do_HEAD(self):
+        pass
 
+    def do_GET(self):
+        pass
     def do_POST(self):
         body_len = int(self.headers.getheader('content-length', 0))
         body_content = self.rfile.read(body_len)
@@ -20,6 +32,10 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(send)
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    """ 
+        Этот класс позволяет обрабатывать запросы в различных потоках. 
+    """
 
 def grade(problem_name, student_response, hide_answer):
 
