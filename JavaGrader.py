@@ -123,47 +123,47 @@ def create_response(result, hide_answer):
         result = [result]
     
     if not result:
-        result = [{'correct':False, 'error': "No result"}]
+        result = [{"correct":False, "error": "No result"}]
 
     
-    number_passed = sum(r['correct'] for r in result)
-    out['correct'] = (number_passed == len(result))
+    number_passed = sum(r["correct"] for r in result)
+    out["correct"] = (number_passed == len(result))
 
     
     out['score'] = number_passed / len(result)
 
    
-    if any(('error' in res) for res in result):
-        html_message = start.format('ERROR')
-    elif out['correct']:
-        html_message = start.format('CORRECT')
+    if any(("error" in res) for res in result):
+        html_message = start.format("ERROR")
+    elif out["correct"]:
+        html_message = start.format("CORRECT")
     else:
-        html_message = start.format('INCORRECT')
+        html_message = start.format("INCORRECT")
 
     
     for i, res in enumerate(result):
         
-        answer = {'correct': False, 'function': '', 'result': '', 'expected': ''}
+        answer = {"correct": False, "function": "", "result": "", "expected": ""}
         answer.update(res)
 
-        if 'error' in res:
+        if "error" in res:
             html_message += fatal.format(**answer)
         else:
-            name = 'Test Case {}'.format(i+1)
+            name = "Test Case {}".format(i+1)
             if hide_answer:
-                if res['correct']:
+                if res["correct"]:
                     html_message += correct_hidden.format(header=name)
                 else:
                     html_message += wrong_hidden.format(header=name)
             else:
-                if res['correct']:
+                if res["correct"]:
                     html_message += correct.format(header=name, **answer)
                 else:
                     html_message += wrong.format(header=name, **answer)
 
     
     html_message += end
-    out['msg'] = html_message
+    out["msg"] = html_message
 
     return out
 
