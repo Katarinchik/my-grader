@@ -26,7 +26,7 @@ def grade(problem_name, student_response, hide_answer):
 
     if (err != ""):
         result.update({'correct': False, 'error': (err)})
-        result = create_response(result, hide_answer)
+        result = create_response(result, hide_answer) 
         return result
 
 
