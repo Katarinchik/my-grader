@@ -125,31 +125,33 @@ def create_response(result, hide_answer):
     print(number_passed)
     if isinstance(result, dict):
         result = [result]
-    
+    print("1")
     if not result:
         result = [{"correct":False, "error": "No result"}]
-
+    print("2")
     
     
     out["correct"] = (number_passed == len(result))
 
-    
+    print("3")
     out["score"] = number_passed / len(result)
 
-   
+    print("4")
     if any(("error" in res) for res in result):
         html_message = start.format("ERROR")
+    print("5")
     elif out["correct"]:
         html_message = start.format("CORRECT")
+    print("6")
     else:
         html_message = start.format("INCORRECT")
-
+    print("7")
     
     for i, res in enumerate(result):
         
         answer = {"correct": False, "function": "", "result": "", "expected": ""}
         answer.update(res)
-
+    print("8")
         if "error" in res:
             html_message += fatal.format(**answer)
         else:
@@ -165,10 +167,11 @@ def create_response(result, hide_answer):
                 else:
                     html_message += wrong.format(header=name, **answer)
 
-    
+    print("9")
     html_message += end
+    print("10")
     out["msg"] = html_message
-
+    print("11")
     return out
 
 
