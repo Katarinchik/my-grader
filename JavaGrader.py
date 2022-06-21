@@ -33,12 +33,11 @@ def grade(problem_name, student_response, hide_answer):
         result = create_response(result, hide_answer) 
         return result
 
-
-    test_runner = problem_name + "TestRunner"
-    test_runner_java = "/edx/java-grader/" + test_runner + ".java"
+ 
+    test_runner_java = "/edx/java-grader/" + problem_name + ".java"
     p = subprocess.Popen(["javac", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner_java], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     print("PN" + problem_name)
     if (err != ""):
