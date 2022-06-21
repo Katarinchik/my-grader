@@ -115,7 +115,7 @@ def create_response(result, hide_answer):
         result = [result]
     
     if not result:
-        result = [{'correct':False, 'error': "Похоже, что произошла ошибка при проверке вашего кода.\n\nПожалуйста, проверьте запускается ли он на вашем компьютере"}]
+        result = [{'correct':False, 'error': "No result"}]
 
     
     number_passed = sum(r['correct'] for r in result)
