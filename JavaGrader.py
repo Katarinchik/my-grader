@@ -110,7 +110,7 @@ def create_response(result, hide_answer):
 
     out = {}
 
-    # Объединяем одиночный результат теста в список
+    
     if isinstance(result, dict):
         result = [result]
     
@@ -119,15 +119,14 @@ def create_response(result, hide_answer):
         result = [{'correct':False, 'error': 'Похоже, что произошла ошибка при проверке вашего кода.\n\n'
                                              'Пожалуйста, проверьте запускается ли он на вашем компьютере'}]
 
-    # correct == True, если пройдены все тесты
+    
     number_passed = sum(r['correct'] for r in result)
     out['correct'] = (number_passed == len(result))
 
-    # Процент успеха прохождения тестов
+    
     out['score'] = number_passed / len(result)
 
-    # Результаты тестов в HTML формате
-    # start содержит заголовок с общим сообщением и кнопками открытия подробных результатов
+   
     if any(('error' in res) for res in result):
         html_message = start.format('ERROR')
     elif out['correct']:
@@ -135,9 +134,9 @@ def create_response(result, hide_answer):
     else:
         html_message = start.format('INCORRECT')
 
-    # Средняя часть сообщения
+    
     for i, res in enumerate(result):
-        # Здесь объявляются состояния по умолчанию для всех составляющих
+        
         answer = {'correct': False, 'function': '', 'result': '', 'expected': ''}
         answer.update(res)
 
@@ -156,7 +155,7 @@ def create_response(result, hide_answer):
                 else:
                     html_message += wrong.format(header=name, **answer)
 
-    # end закрывает все открытые HTML тэги
+    
     html_message += end
     out['msg'] = html_message
 
