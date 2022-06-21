@@ -49,32 +49,7 @@ def grade(problem_name, student_response, hide_answer):
     create_response(result, hide_answer)
     return result
 
-def create_response(result, hide_answer):
-    """ 
-    Получает список результатов тестов и создает ответ для XQueue.
-    Результты тестирования форматируются HTML кодом.
-    Аргументы:
-        result (list): Список тестов, каждый тест представлен словарем.
-                       Каждый тест должен соответсвовать одному из форматов:
-                       {'correct': (bool), 'function': (str),
-                        'result': (str), 'expected': (str)}
-                       или
-                       {'correct': False, 'error': (str)}
-                       где применяются следующие обозначения:
-                       correct (bool): результат теста
-                       function (str): опиание теста
-                       result (str): вывод программы обучающегося
-                       expected (str): корректный и ожидаемый результат
-                       error (str):  сообщение об ошибке, которая не дала
-                                     провести тест(SyntaxError, NameError, и т.д.)
-    Возвращает:
-        msg (byte): дамп JSON ответа для XQueue. Содержит словарь
-                    {'correct': (bool), 'score': (float), 'msg': (str)}
-                    где
-                    correct (bool): общий результат
-                    score (float): процент успеха прохождения тестов в виде от 0 до 1
-                    msg (str): отформатированные в HTML код результаты тестов
-    """
+def create_response(result, hide_answer):    
 
     start = """
             <div class="test">
