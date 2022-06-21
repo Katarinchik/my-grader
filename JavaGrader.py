@@ -204,5 +204,5 @@ def get_info(body_content):
 
 if __name__ == "__main__":
 
-    server = BaseHTTPServer.HTTPServer(("localhost", 1710), HTTPHandler)
+    server = ThreadedHTTPServer((("localhost", 1710), port), Handler)
     server.serve_forever()
