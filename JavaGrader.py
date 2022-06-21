@@ -199,13 +199,13 @@ def create_response(result, hide_answer):
     return out
 
 
-def get_info(body_content):
-    json_object = json.loads(body_content)
-    json_object = json.loads(json_object["xqueue_body"])
-    grader_payload = json.loads(json_object["grader_payload"])
-    student_response = json_object["student_response"]
-    problem_name = grader_payload["problem_name"]
-    hide_answer = grader_payload["hide_answer"]
+def get_info(json_object):
+     json_object = json.loads(json_object['xqueue_body'])
+    grader_payload = json.loads(json_object['grader_payload'])
+    student_response = json_object['student_response']
+    student_id = json.loads(json_object['student_info']).get('anonymous_student_id', 'unknown')
+    problem_name = grader_payload['problem_name']
+    hide_answer = grader_payload['hide_answer']
     return problem_name, student_response, hide_answer
 
 if __name__ == "__main__":
