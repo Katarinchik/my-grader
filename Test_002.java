@@ -15,7 +15,7 @@ public class Test_002 {
 		assertEquals(3, p.Myfunc(4));
 		assertEquals(5, p.Myfunc(5));
 		assertEquals(8, p.Myfunc(6));
-		System.out.println("True" );
+		System.out.println("x=" + 2 + "; y=" + 3);
 	}
 
 	public static void main(String[] args) {
