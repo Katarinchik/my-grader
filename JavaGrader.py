@@ -151,9 +151,9 @@ def create_response(result, hide_answer):
     if not result:
         result = [{'correct':False, 'error': "No result"}]
     for i in range(len(result)):
-        if(result[i]['correct]=="true"):
+        if result[i]['correct]=="true" :
                 result[i]['correct]= True
-        else:
+        else :
                 result[i]['correct]= False 
     number_passed = sum(r['correct'] for r in result)
     out["correct"] = (number_passed == len(result))
@@ -161,7 +161,7 @@ def create_response(result, hide_answer):
     print(number_passed)
     out["score"] = number_passed / len(result)
 
-    print("4")
+
     if any(('error' in res) for res in result):
         html_message = start.format("ERROR")
         print("5")
