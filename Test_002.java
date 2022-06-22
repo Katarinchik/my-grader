@@ -10,7 +10,7 @@ public class Test_002 {
 	public void test() {
 		Program p = new Program();
 		if(assertEquals(1, p.Myfunc(1)))
-			System.out.println("3242ed");
+		{System.out.println("3242ed");}	
 		assertEquals(1, p.Myfunc(2));
 		assertEquals(2, p.Myfunc(3));
 		assertEquals(3, p.Myfunc(4));
