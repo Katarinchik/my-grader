@@ -4,12 +4,13 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import java.lang.String;
+import java.lang.Math;
 public class Test_002 {
 
 	@Test
 	public void test() {
 		Program p = new Program();
-		String mes;
+		String mes ="";
 		assertEquals(1, p.Myfunc(1))	
 		assertEquals(1, p.Myfunc(2));
 		assertEquals(2, p.Myfunc(3));
