@@ -15,6 +15,7 @@ public class Test_002 {
 		assertEquals(3, p.Myfunc(4));
 		assertEquals(5, p.Myfunc(5));
 		assertEquals(8, p.Myfunc(6));
+		System.out.println("123");
 	}
 
 	public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Test_002 {
 			System.out.println(myFailure);			
 		}
 		System.out.println(result.wasSuccessful());
-		System.out.println("123");
+		
 	}
 
 }
