@@ -52,7 +52,7 @@ def grade(problem_name, student_response, hide_answer):
     p = subprocess.Popen(["javac", "Program.java"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     print(err)
-    if (err != "b''"):
+    if (err):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer) 
         return result
