@@ -14,7 +14,7 @@ public class Test_001 {
 		{
 		x = (int) ( Math.random() * 100);
 		assertEquals(solution(x), p.Myfunc(x));
-		System.out.println(True + " Myfunc " +solution(x));	
+		System.out.println(True + " Myfunc("+ x+") "+solution(x)) + 123;	
 		}
 		
 	}
@@ -25,7 +25,6 @@ public class Test_001 {
 
 	public static void main(String[] args) {
 		Result result = JUnitCore.runClasses(Test_001.class);
-		test();
 		for (Failure failure : result.getFailures()) {
 			String myFailure = new String(failure.toString());
 			myFailure = myFailure.replace("<", " ");
