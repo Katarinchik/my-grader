@@ -60,7 +60,7 @@ def grade(problem_name, student_response, hide_answer):
     test_runner_java = "/edx/my-grader/" + problem_name + ".java"
     p = subprocess.Popen(["javac", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", test_runner_java], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(["java", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.decode('utf-8')
     print("/////////////////////////////////////////")
