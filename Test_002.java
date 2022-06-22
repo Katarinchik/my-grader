@@ -18,7 +18,7 @@ public class Test_002 {
 		}
 		else
 		{
-		System.out.println("False Myfunc(1) "+ p.Myfunc(1)+ " 1");
+		System.out.println(mes);
 		}
 		assertEquals(1, p.Myfunc(2));
 		assertEquals(2, p.Myfunc(3));
