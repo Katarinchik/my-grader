@@ -3,20 +3,20 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-
+import java.lang.String;
 public class Test_002 {
 
 	@Test
 	public void test() {
 		Program p = new Program();
-		if(assertEquals(1, p.Myfunc(1)))
-		{System.out.println("3242ed");}	
+		String mes;
+		assertEquals(mes,1, p.Myfunc(1))	
 		assertEquals(1, p.Myfunc(2));
 		assertEquals(2, p.Myfunc(3));
 		assertEquals(3, p.Myfunc(4));
 		assertEquals(5, p.Myfunc(5));
 		assertEquals(8, p.Myfunc(6));
-		System.out.println("true" + 2 + "; y=" + 3);
+		System.out.println("true" + 123 + "; y=" + 3);
 	}
 
 	public static void main(String[] args) {
