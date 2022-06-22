@@ -31,7 +31,7 @@ public class Test_001 {
 			myFailure = myFailure.replace(">", " "); 
 			System.out.println(myFailure);			
 		}
-		#System.out.println(result.wasSuccessful());
+		System.out.println(result.wasSuccessful());
 	}
 
 }
