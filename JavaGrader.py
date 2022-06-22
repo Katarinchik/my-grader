@@ -68,7 +68,7 @@ def grade(problem_name, student_response, hide_answer):
         result = create_response(result, hide_answer)
         return result
     out = re.split("\n", out)
-    keys = ["correct", "function", "result", "expected"]
+    keys = ['correct', 'function', 'result', 'expected']
     out1 =[];
     result =[];
     for i in range(len(out)):
@@ -151,7 +151,7 @@ def create_response(result, hide_answer):
         result = [result]
     print("1")
     if not result:
-        result = [{"correct":False, "error": "No result"}]
+        result = [{'correct':False, 'error': "No result"}]
     print("2")
     
     
@@ -161,10 +161,10 @@ def create_response(result, hide_answer):
     out["score"] = number_passed / len(result)
 
     print("4")
-    if any(("error" in res) for res in result):
+    if any(('error' in res) for res in result):
         html_message = start.format("ERROR")
         print("5")
-    elif out["correct"]:
+    elif out['correct']:
         html_message = start.format("CORRECT")
         print("6")
     else:
@@ -173,7 +173,7 @@ def create_response(result, hide_answer):
     
     for i, res in enumerate(result):
         
-        answer = {"correct": False, "function": "", "result": "", "expected": ""}
+        answer = {'correct': False, 'function': "", 'result': "", 'expected': ""}
         answer.update(res)
         print("8")
         if "error" in res:
