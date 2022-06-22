@@ -14,7 +14,7 @@ public class Test_003{
 		{
 		x = (int) ( Math.random() * 100);
 		y = (int) ( Math.random() * 100);
-		assertEquals(solution(x,y), p.Myfunc(x,y));
+		System.out.println((p.Myfunc(x,y)==solution(x,y)) +" Myfunc("+x+","+y+") "+p.Myfunc(x,y)+" "+ solution(x,y));
 		}
 		
 	}
