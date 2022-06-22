@@ -142,10 +142,9 @@ def create_response(result, hide_answer):
  
     if isinstance(result, dict):
         result = [result]
-    print("1")
+    print(result)
     if not result:
         result = [{'correct':False, 'error': "No result"}]
-    print("2")
     
     number_passed = sum(r['correct'] for r in result)
     out["correct"] = (number_passed == len(result))
