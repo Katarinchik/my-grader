@@ -26,6 +26,7 @@ public class Test_002 {
 			System.out.println(myFailure);			
 		}
 		System.out.println(result.wasSuccessful());
+		System.out.println("123");
 	}
 
 }
