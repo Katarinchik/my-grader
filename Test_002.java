@@ -12,8 +12,8 @@ public class Test_002 {
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
-		
-		System.out.println((p.Myfunc(i)==solution(i)) +" Myfunc("+i+") "+p.Myfunc(1)+" "+ solution(i));
+		x = (int) ( Math.random() * 15+1);
+		System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));
 		
 		}
 		
