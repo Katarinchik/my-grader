@@ -78,14 +78,7 @@ def grade(problem_name, student_response, hide_answer):
     return result
 
 def create_response(result, hide_answer): 
-    number_passed = 0;
-    for i in range(len(result)):
-        if result[i]['correct'] == "True":
-                result[i]['correct'] = True
-                number_passed = number_passed +1
-        else:
-                result[i]['correct']= False
-    print(result)
+    
     
     start = """
             <div class="test">
@@ -146,7 +139,7 @@ def create_response(result, hide_answer):
 
     out = {}
 
-    print(number_passed)
+ 
     if isinstance(result, dict):
         result = [result]
     print("1")
@@ -154,10 +147,10 @@ def create_response(result, hide_answer):
         result = [{'correct':False, 'error': "No result"}]
     print("2")
     
-    
+    number_passed = sum(r['correct'] for r in result)
     out["correct"] = (number_passed == len(result))
 
-    print("3")
+    print(number_passed)
     out["score"] = number_passed / len(result)
 
     print("4")
