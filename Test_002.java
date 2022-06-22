@@ -11,8 +11,7 @@ public class Test_002 {
 	public void test() {
 		Program p = new Program();
 		String mes ="";
-		assertEquals(mes,1, p.Myfunc(1));
-		if (mes.isEmpty())
+		if (isequal(1, p.Myfunc(1)))
 		{
 		System.out.println("True Myfunc(1) 1 1");
 		}
