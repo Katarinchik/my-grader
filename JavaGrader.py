@@ -49,11 +49,9 @@ def grade(problem_name, student_response, hide_answer):
     source_file.write(student_response)
     source_file.close()
     result = {}
-    p = subprocess.Popen(["javac", "/edx/my-grader/Program.java"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(["javac", "Program.java"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     print(err)
-    print(p.stdout.read() )
-    print(out)
     if (err != "b''"):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer) 
