@@ -51,7 +51,6 @@ def grade(problem_name, student_response, hide_answer):
     result = {}
     p = subprocess.Popen(["javac", "Program.java"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    print(err)
     if (err):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer) 
@@ -63,7 +62,8 @@ def grade(problem_name, student_response, hide_answer):
     out, err = p.communicate()
     p = subprocess.Popen(["java", "-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    print(out )
+    out = out.decode('utf-8')
+    print(out)
     if (err):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer)
