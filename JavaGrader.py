@@ -163,14 +163,14 @@ def create_response(result, hide_answer):
 
 
     if any(('error' in res) for res in result):
-        html_message = start.format("ERROR")
-        print("5")
+        html_message = start.format('ERROR')
+
     elif out['correct']:
-        html_message = start.format("CORRECT")
-        print("6")
+        html_message = start.format('CORRECT')
+
     else:
-        html_message = start.format("INCORRECT")
-    print("7")
+        html_message = start.format('INCORRECT')
+
     
     for i, res in enumerate(result):
         
@@ -192,11 +192,8 @@ def create_response(result, hide_answer):
                 else:
                     html_message += wrong.format(header=name, **answer)
 
-    print("9")
-    html_message += end
-    print("10")
+    html_message += end    
     out["msg"] = html_message
-    print("11")
     return out
 
 
