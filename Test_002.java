@@ -15,7 +15,7 @@ public class Test_002 {
 		assertEquals(3, p.Myfunc(4));
 		assertEquals(5, p.Myfunc(5));
 		assertEquals(8, p.Myfunc(6));
-		System.out.println("True" + 1.ToString());
+		System.out.println("True" );
 	}
 
 	public static void main(String[] args) {
