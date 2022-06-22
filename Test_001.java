@@ -32,7 +32,7 @@ public class Test_001 {
 			//System.out.println(myFailure);			
 		}
 		System.out.println(result.wasSuccessful());
-		System.out.println(123);
+		System.out.println(123.toString());
 	}
 
 }
