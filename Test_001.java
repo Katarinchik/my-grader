@@ -14,7 +14,7 @@ public class Test_001 {
 		{
 		x = (int) ( Math.random() * 100);
 		assertEquals(solution(x), p.Myfunc(x));
-		System.out.println(True + " Myfunc("+ x+") "+solution(x)) + 123;	
+		System.out.println(True.toString() + " Myfunc("+ x.toString()+") "+solution(x).toString() + " "+ 127.toString());	
 		}
 		
 	}
