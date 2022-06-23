@@ -13,11 +13,9 @@ public class Test_001 {
 		for (int i=0;i<10;i++)
 		{
 		x = (int) ( Math.random() * 15+1);
-		if(typeof(p.Myfunc(x))==typeof(solution(x)))
-		{System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));}
-		else{
-		System.out.println("false Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x)); 
-		}
+		
+		System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));
+		
 		}
 		
 		
