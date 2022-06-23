@@ -33,9 +33,9 @@ class Handler(BaseHTTPRequestHandler):
         else:
                 hide_answer = False
         result = grade(problem_name, student_response, hide_answer)
-        print (result)
+      
         send = json.dumps(result).encode()
-        print(send)
+    
         self.send_response(200)
         self.end_headers()
         self.wfile.write(send)
@@ -76,8 +76,8 @@ def grade(problem_name, student_response, hide_answer):
     for i in range(len(out)):
         out1 = re.split(" ", out[i])
         result.append(dict(zip(keys, out1))) 
-    create_response(result, hide_answer)
-    return result
+    
+    return create_response(result, hide_answer)
 
 def create_response(result, hide_answer): 
     
