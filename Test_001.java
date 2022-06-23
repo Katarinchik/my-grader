@@ -13,7 +13,7 @@ public class Test_001 {
 		for (int i=0;i<10;i++)
 		{
 		x = (int) ( Math.random() * 100);
-		System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));	
+		System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));
 		}
 		
 	}
