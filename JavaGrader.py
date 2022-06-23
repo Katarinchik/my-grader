@@ -34,7 +34,7 @@ class Handler(BaseHTTPRequestHandler):
                 hide_answer = False
         result = grade(problem_name, student_response, hide_answer)
         send = json.dumps(result).encode()
-        print(send)
+        #print(send)
         self.send_response(200)
         self.end_headers()
         self.wfile.write(send)
@@ -64,9 +64,6 @@ def grade(problem_name, student_response, hide_answer):
     p = subprocess.Popen(["java","-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.decode('utf-8')
-    print("/////////////////////////////////////////")
-    print(out)
-    print("/////////////////////////////////////////")
     if (err):
         result.update({"correct": False, "error": (err)})
         result = create_response(result, hide_answer)
