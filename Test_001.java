@@ -24,14 +24,9 @@ public class Test_001 {
 
 	public static void main(String[] args) {
 		Result result = JUnitCore.runClasses(Test_001.class);
-		for (Failure failure : result.getFailures()) {
-			String myFailure = new String(failure.toString());
-			myFailure = myFailure.replace("<", " ");
-			myFailure = myFailure.replace(">", " "); 
-			System.out.println(myFailure);			
+				
 		}
-		System.out.println(result.wasSuccessful());
-		System.out.println(123.toString());
+		
 	}
 
 }
