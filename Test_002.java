@@ -9,6 +9,7 @@ public class Test_002 {
 
 	@Test
 	public void test() {
+		int x;
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
