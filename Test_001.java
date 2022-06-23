@@ -7,14 +7,16 @@ import java.lang.Math;
 public class Test_001 {
 
 	@Test
-		public void test() {
+	public void test() {
 		int x;
 		Program p = new Program();
 		for (int i=0;i<10;i++)
 		{
-		x = (int) ( Math.random() * 100);
+		x = (int) ( Math.random() * 15+1);
 		System.out.println((p.Myfunc(x)==solution(x)) +" Myfunc("+x+") "+p.Myfunc(x)+" "+ solution(x));
+		
 		}
+		
 		
 	}
 	public int solution(int x) {
