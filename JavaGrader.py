@@ -63,7 +63,6 @@ def grade(problem_name, student_response, hide_answer):
     print(err)
     p = subprocess.Popen(["java","-classpath", "/edx/my-grader:/edx/my-grader/junit-4.11.jar:/edx/my-grader/hamcrest-core-1.3.jar", problem_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    print(out)
     out = out.decode('utf-8')
     print("/////////////////////////////////////////")
     print(out)
@@ -176,7 +175,6 @@ def create_response(result, hide_answer):
         
         answer = {'correct': False, 'function': "", 'result': "", 'expected': ""}
         answer.update(res)
-        print("8")
         if "error" in res:
             html_message += fatal.format(**answer)
         else:
@@ -194,6 +192,7 @@ def create_response(result, hide_answer):
 
     html_message += end    
     out["msg"] = html_message
+    print(out)
     return out
 
 
